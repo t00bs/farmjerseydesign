@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/farm-jersey-design-system-4ee58ffa-1a01-461f-ba47-c6112df8888c/tokens/fig-tokens.css">
+<link rel="stylesheet" href="_ds/farm-jersey-design-system-4ee58ffa-1a01-461f-ba47-c6112df8888c/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/farm-jersey-design-system-4ee58ffa-1a01-461f-ba47-c6112df8888c/tokens/colors.css">
+<link rel="stylesheet" href="_ds/farm-jersey-design-system-4ee58ffa-1a01-461f-ba47-c6112df8888c/tokens/typography.css">
+<link rel="stylesheet" href="_ds/farm-jersey-design-system-4ee58ffa-1a01-461f-ba47-c6112df8888c/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/farm-jersey-design-system-4ee58ffa-1a01-461f-ba47-c6112df8888c/styles.css">
+<script src="_ds/farm-jersey-design-system-4ee58ffa-1a01-461f-ba47-c6112df8888c/_ds_bundle.js"></script>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#f4f3ef;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-family:var(--font-sans)}
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+  .ld-logo svg{height:42px;width:auto;display:block}
+  .ld-scroll::-webkit-scrollbar{height:12px}
+  .ld-scroll::-webkit-scrollbar-thumb{background:#c9c5bb;border:3px solid #fff}
+  .ld-scroll::-webkit-scrollbar-track{background:#f4f3ef}
+  input:disabled,select:disabled{background:#f6f4f1 !important;color:#a39e95 !important;cursor:not-allowed}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#f4f3ef;display:flex;flex-direction:column">
+
+  <!-- Page header -->
+  <header style="background:#fff;border-bottom:1px solid var(--fj-black)">
+    <div style="max-width:1400px;margin:0 auto;width:100%;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+      <div class="ld-logo">
+        <x-import component-from-global-scope="FarmJerseyDesignSystem_4ee58f.Logo" variant="lockup" theme="dark" height="42" hint-size="190px,50px"></x-import>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px">
+        <span style="display:inline-flex;align-items:center;gap:7px;padding:6px 12px;font:600 12px/1 var(--font-sans);letter-spacing:.04em;text-transform:uppercase;color:var(--fj-green-deep);background:var(--fj-green)"><span class="material-symbols-outlined" style="font-size:16px">eco</span>Rural Support Scheme</span>
+        <div style="display:flex;align-items:center;gap:9px">
+          <span style="width:34px;height:34px;border-radius:50%;background:var(--fj-earth);color:#fff;display:inline-flex;align-items:center;justify-content:center;font:600 13px/1 var(--font-sans)">JL</span>
+          <div style="line-height:1.25"><div style="font:600 13px/1.2 var(--font-sans);color:var(--fj-ink)">Le Maistre Farms</div><div style="font:400 11px/1.2 var(--font-sans);color:var(--text-subtle)">Holding J0427</div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Title band -->
+  <div style="max-width:1400px;margin:0 auto;width:100%;padding:30px 32px 8px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap">
+      <div>
+        <div style="font:600 12px/1 var(--font-sans);letter-spacing:.1em;text-transform:uppercase;color:var(--text-subtle);margin-bottom:10px">2025 Reward Year · Agricultural Return</div>
+        <h1 class="fj-h2" style="margin:0;color:var(--fj-ink)">RSS Land Declaration 2025</h1>
+        <p style="margin:8px 0 0;font:400 18px/1.4 var(--font-sans);color:var(--text-muted)">Land Use (Crops)</p>
+      </div>
+    </div>
+  </div>
+
+  <main style="max-width:1400px;margin:0 auto;width:100%;padding:18px 32px 56px">
+
+    <!-- Guidance note -->
+    <sc-if value="{{ showGuidance }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;gap:12px;align-items:flex-start;padding:14px 18px;background:var(--fj-green);margin-bottom:20px">
+      <span class="material-symbols-outlined" style="font-size:20px;color:var(--fj-green-deep);flex:none">info</span>
+      <div style="font:400 14px/1.5 var(--font-sans);color:var(--fj-green-deep)">Declare every field you farm, one row per parcel. Each field is either <strong>Owned</strong> or <strong>Leased</strong>. Areas are recorded in <strong>vergées</strong> (vg) — the Jersey unit of land area. Tick <strong>Delete</strong> on any field you will not be using in 2026.</div>
+    </div>
+    </sc-if>
+
+    <!-- Toolbar -->
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:10px">
+        <button onClick="{{ addRow }}" style="display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:9px 16px;font:500 14px/1.4 var(--font-sans);background:var(--fj-black);color:#fff;border:1px solid var(--fj-black);cursor:pointer;border-radius:0" style-hover="background:var(--neutral-90)"><span class="material-symbols-outlined" style="font-size:18px">add</span>Add field</button>
+        <span style="font:400 13px/1.4 var(--font-sans);color:var(--text-subtle)">{{ rowCountLabel }}</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:18px">
+        <span style="display:inline-flex;align-items:center;gap:7px;font:400 12px/1 var(--font-sans);color:var(--text-muted)"><span style="display:inline-block;width:14px;height:14px;background:var(--fj-green);border:1px solid var(--fj-green-deep)"></span>Crops 2025</span>
+        <span style="display:inline-flex;align-items:center;gap:7px;font:400 12px/1 var(--font-sans);color:var(--text-muted)"><span style="display:inline-block;width:14px;height:14px;background:var(--fj-earth);border:1px solid #8a6c4a"></span>Crops Planned 2026</span>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="ld-scroll" style="overflow-x:auto;border:1px solid var(--fj-black);background:#fff">
+      <table style="border-collapse:separate;border-spacing:0;table-layout:fixed;width:2984px">
+        <thead>
+          <tr aria-hidden="true">
+            <th style="width:54px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:54px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:150px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:140px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:110px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:96px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:148px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:158px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:116px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:140px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:118px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:150px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:126px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:110px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:96px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:96px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:148px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:158px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:116px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:140px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:118px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:150px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:126px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:110px;height:0;padding:0;border:0;line-height:0;font-size:0"></th><th style="width:56px;height:0;padding:0;border:0;line-height:0;font-size:0"></th>
+          </tr>
+          <!-- Row A: group bands -->
+          <tr>
+            <th colspan="2" style="position:sticky;left:0;top:0;z-index:6;background:#e7eae6;color:#3a443a;padding:11px 10px;font:700 11px/1.2 var(--font-sans);letter-spacing:.05em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)">Owner</th>
+            <th rowspan="3" style="position:sticky;left:108px;top:0;z-index:6;background:#f4f3ef;color:var(--text-muted);padding:10px;font:700 10px/1.3 var(--font-sans);letter-spacing:.05em;text-transform:uppercase;text-align:left;vertical-align:bottom;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Field Name</th>
+            <th rowspan="3" style="position:sticky;left:258px;top:0;z-index:6;background:#f4f3ef;color:var(--text-muted);padding:10px;font:700 10px/1.3 var(--font-sans);letter-spacing:.05em;text-transform:uppercase;text-align:left;vertical-align:bottom;border-bottom:1px solid var(--fj-black);border-right:2px solid var(--fj-black)">Land Parcel Number</th>
+            <th rowspan="3" style="background:#f4f3ef;color:var(--text-muted);padding:10px;font:700 10px/1.3 var(--font-sans);letter-spacing:.05em;text-transform:uppercase;text-align:left;vertical-align:bottom;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Official Size (vergées)</th>
+            <th colspan="2" style="background:#e4ece4;color:#3a4a3a;padding:11px 10px;font:700 11px/1.2 var(--font-sans);letter-spacing:.05em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)">2025</th>
+            <th colspan="6" style="background:var(--fj-green);color:var(--fj-green-deep);padding:11px 10px;font:700 12px/1.2 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--fj-green-deep);border-right:2px solid var(--fj-black)">Crops 2025</th>
+            <th rowspan="3" style="background:var(--fj-green);color:var(--fj-green-deep);padding:10px 8px;font:700 10px/1.3 var(--font-sans);letter-spacing:.04em;text-transform:uppercase;text-align:right;vertical-align:bottom;border-bottom:1px solid var(--fj-green-deep);border-right:2px solid var(--fj-black)">Credits<div style="font:400 9px/1.3 var(--font-sans);letter-spacing:0;text-transform:none;margin-top:3px;color:#4e6b4a">2025 · row total</div></th>
+            <th rowspan="3" style="background:#fbeceb;color:#9a3b34;padding:10px 8px;font:700 10px/1.3 var(--font-sans);letter-spacing:.04em;text-transform:uppercase;text-align:center;vertical-align:middle;border-bottom:1px solid var(--fj-black);border-right:2px solid var(--fj-black)">Delete&nbsp;[X]<div style="font:400 9px/1.3 var(--font-sans);letter-spacing:0;text-transform:none;margin-top:4px;color:#b96a62">if not used in 2026</div></th>
+            <th colspan="8" style="background:var(--fj-earth);color:#fff;padding:11px 10px;font:700 12px/1.2 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;text-align:center;border-bottom:1px solid #8a6c4a">Crops Planned 2026</th>
+            <th rowspan="3" style="background:var(--fj-earth);color:#fff;padding:10px 8px;font:700 10px/1.3 var(--font-sans);letter-spacing:.04em;text-transform:uppercase;text-align:right;vertical-align:bottom;border-bottom:1px solid #8a6c4a;border-right:1px solid var(--border-subtle)">Credits<div style="font:400 9px/1.3 var(--font-sans);letter-spacing:0;text-transform:none;margin-top:3px;color:#f0e2d0">2026 · row total</div></th>
+            <th rowspan="3" style="background:#f4f3ef;border-bottom:1px solid var(--fj-black)"></th>
+          </tr>
+          <!-- Row B: sub-group labels -->
+          <tr>
+            <th colspan="2" style="position:sticky;left:0;top:0;z-index:6;background:#eef0ec;color:#5a6258;padding:7px 10px;font:600 9px/1.2 var(--font-sans);letter-spacing:.05em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"></th>
+            <th colspan="2" style="background:#eef3ee;color:#5a6a5a;padding:7px 10px;font:600 9px/1.2 var(--font-sans);letter-spacing:.05em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)">Area &amp; use</th>
+            <th colspan="4" style="background:#c6f0c2;color:var(--fj-green-deep);padding:7px 10px;font:600 9px/1.2 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--fj-green-deep);border-right:1px solid #8fc78b">Primary Land Use</th>
+            <th colspan="2" style="background:#c6f0c2;color:var(--fj-green-deep);padding:7px 10px;font:600 9px/1.2 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--fj-green-deep);border-right:2px solid var(--fj-black)">Secondary Crop</th>
+            <th colspan="6" style="background:#e7d3b7;color:#5b432b;padding:7px 10px;font:600 9px/1.2 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;text-align:center;border-bottom:1px solid #8a6c4a;border-right:1px solid #c9aa83">Primary Land Use</th>
+            <th colspan="2" style="background:#e7d3b7;color:#5b432b;padding:7px 10px;font:600 9px/1.2 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;text-align:center;border-bottom:1px solid #8a6c4a">Secondary Crop</th>
+          </tr>
+          <!-- Row C: column labels -->
+          <tr>
+            <th style="position:sticky;left:0;top:0;z-index:6;background:#fbfbfa;color:var(--text-muted);padding:8px 4px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Owned</th>
+            <th style="position:sticky;left:54px;top:0;z-index:6;background:#fbfbfa;color:var(--text-muted);padding:8px 4px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:center;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Leased</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Area Used</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Land Use</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Crop or Land Type</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Primary Incentive</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Local Market Incentive</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Organic Incentive</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">2nd Crop Name</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:2px solid var(--fj-black)">Secondary Incentive</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Area Used</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Land Use</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Primary Crop</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Primary Incentive</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Local Market Incentive</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Organic Incentive</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">2nd Crop Name</th>
+            <th style="background:#fbfbfa;color:var(--text-muted);padding:8px 8px;font:700 9px/1.2 var(--font-sans);letter-spacing:.03em;text-transform:uppercase;text-align:left;border-bottom:1px solid var(--fj-black);border-right:1px solid var(--border-subtle)">Secondary Incentive</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ rows }}" as="r" hint-placeholder-count="5">
+            <tr style="background:{{ r.rowBg }}">
+              <!-- Owned -->
+              <td style="position:sticky;left:0;z-index:3;background:{{ r.frozenBg }};padding:0;text-align:center;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle);vertical-align:middle"><input type="checkbox" checked="{{ r.owned }}" onChange="{{ r.toggleOwned }}" style="width:18px;height:18px;accent-color:var(--fj-green-deep);cursor:pointer;margin:0"></td>
+              <!-- Leased -->
+              <td style="position:sticky;left:54px;z-index:3;background:{{ r.frozenBg }};padding:0;text-align:center;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle);vertical-align:middle"><input type="checkbox" checked="{{ r.leased }}" onChange="{{ r.toggleLeased }}" style="width:18px;height:18px;accent-color:var(--fj-earth);cursor:pointer;margin:0"></td>
+              <!-- Field Name -->
+              <td style="position:sticky;left:108px;z-index:3;background:{{ r.frozenBg }};padding:6px 7px;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><input value="{{ r.fieldName }}" onInput="{{ r.setFieldName }}" disabled="{{ r.del }}" placeholder="Field name" style="width:100%;height:34px;padding:0 8px;font:400 13px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"></td>
+              <!-- Land Parcel Number -->
+              <td style="position:sticky;left:258px;z-index:3;background:{{ r.frozenBg }};padding:6px 7px;border-bottom:1px solid var(--border-subtle);border-right:2px solid var(--fj-black)"><input value="{{ r.parcelNo }}" onInput="{{ r.setParcel }}" disabled="{{ r.del }}" placeholder="e.g. J0427-12" style="width:100%;height:34px;padding:0 8px;font:400 13px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"></td>
+              <!-- Official Size -->
+              <td style="padding:6px 7px;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><input value="{{ r.officialSize }}" onInput="{{ r.setOfficial }}" disabled="{{ r.del }}" inputmode="decimal" placeholder="0.00" style="width:100%;height:34px;padding:0 8px;font:400 13px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0;text-align:right" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"></td>
+              <!-- 2025 Area Used -->
+              <td style="padding:6px 7px;background:#f3f8f3;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><input value="{{ r.y25Area }}" onInput="{{ r.set25Area }}" disabled="{{ r.del }}" inputmode="decimal" placeholder="0.00" style="width:100%;height:34px;padding:0 8px;font:400 13px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0;text-align:right" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"></td>
+              <!-- 2025 Land Use -->
+              <td style="padding:6px 7px;background:#f3f8f3;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><select value="{{ r.y25Use }}" onChange="{{ r.set25Use }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><option value="">Select…</option><sc-for list="{{ landUses }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- Crops 2025: Crop or Land Type -->
+              <td style="padding:6px 7px;background:#f0fbef;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><select value="{{ r.y25Crop }}" onChange="{{ r.set25Crop }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><option value="">Select…</option><sc-for list="{{ crops }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- 2025 Primary Incentive -->
+              <td style="padding:6px 7px;background:#f0fbef;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><select value="{{ r.y25PInc }}" onChange="{{ r.set25PInc }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><sc-for list="{{ primaryIncs }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- 2025 Local Market Incentive -->
+              <td style="padding:6px 7px;background:#f0fbef;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><select value="{{ r.y25LInc }}" onChange="{{ r.set25LInc }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><sc-for list="{{ localIncs }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- 2025 Organic Incentive -->
+              <td style="padding:6px 7px;background:#f0fbef;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><select value="{{ r.y25OInc }}" onChange="{{ r.set25OInc }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><sc-for list="{{ organics }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- 2025 2nd Crop Name -->
+              <td style="padding:6px 7px;background:#f0fbef;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><select value="{{ r.y25Crop2 }}" onChange="{{ r.set25Crop2 }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><option value="">Select…</option><sc-for list="{{ crops }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- 2025 Secondary Incentive -->
+              <td style="padding:6px 7px;background:#f0fbef;border-bottom:1px solid var(--border-subtle);border-right:2px solid var(--fj-black)"><select value="{{ r.y25SInc }}" onChange="{{ r.set25SInc }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><sc-for list="{{ secIncs }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- 2025 Credits -->
+              <td style="padding:6px 8px;background:#eafae8;border-bottom:1px solid var(--border-subtle);border-right:2px solid var(--fj-black);text-align:right;vertical-align:middle"><div style="font:600 14px/1.1 var(--font-sans);color:#2f4a2c">{{ r.cr25 }}</div><sc-if value="{{ r.cap25 }}" hint-placeholder-val="{{ false }}"><div style="font:500 9px/1.2 var(--font-sans);color:#b96a62;margin-top:2px">capped · 5 vg</div></sc-if></td>
+              <!-- Delete flag -->
+              <td style="padding:0;text-align:center;background:#fdf4f3;border-bottom:1px solid var(--border-subtle);border-right:2px solid var(--fj-black);vertical-align:middle"><input type="checkbox" checked="{{ r.del }}" onChange="{{ r.toggleDel }}" style="width:18px;height:18px;accent-color:#c0392b;cursor:pointer;margin:0"></td>
+              <!-- 2026 Area Used -->
+              <td style="padding:6px 7px;background:#faf4ea;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><input value="{{ r.y26Area }}" onInput="{{ r.set26Area }}" disabled="{{ r.del }}" inputmode="decimal" placeholder="0.00" style="width:100%;height:34px;padding:0 8px;font:400 13px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0;text-align:right" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"></td>
+              <!-- 2026 Land Use -->
+              <td style="padding:6px 7px;background:#faf4ea;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><select value="{{ r.y26Use }}" onChange="{{ r.set26Use }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><option value="">Select…</option><sc-for list="{{ landUses }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- 2026 Primary Crop -->
+              <td style="padding:6px 7px;background:#faf4ea;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><select value="{{ r.y26Crop }}" onChange="{{ r.set26Crop }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><option value="">Select…</option><sc-for list="{{ crops }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- 2026 Primary Incentive -->
+              <td style="padding:6px 7px;background:#faf4ea;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><select value="{{ r.y26PInc }}" onChange="{{ r.set26PInc }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><sc-for list="{{ primaryIncs }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- 2026 Local Market Incentive -->
+              <td style="padding:6px 7px;background:#faf4ea;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><select value="{{ r.y26LInc }}" onChange="{{ r.set26LInc }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><sc-for list="{{ localIncs }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- 2026 Organic Incentive -->
+              <td style="padding:6px 7px;background:#faf4ea;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><select value="{{ r.y26OInc }}" onChange="{{ r.set26OInc }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><sc-for list="{{ organics }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- 2026 2nd Crop Name -->
+              <td style="padding:6px 7px;background:#faf4ea;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><select value="{{ r.y26Crop2 }}" onChange="{{ r.set26Crop2 }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><option value="">Select…</option><sc-for list="{{ crops }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- 2026 Secondary Incentive -->
+              <td style="padding:6px 7px;background:#faf4ea;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle)"><select value="{{ r.y26SInc }}" onChange="{{ r.set26SInc }}" disabled="{{ r.del }}" style="width:100%;height:34px;padding:0 6px;font:400 12px/1 var(--font-sans);color:var(--fj-ink);border:1px solid var(--border-muted);background:#fff;outline:none;border-radius:0" style-focus="border-color:var(--fj-green-deep);box-shadow:0 0 0 2px var(--fj-green)"><sc-for list="{{ secIncs }}" as="o" hint-placeholder-count="0"><option value="{{ o }}">{{ o }}</option></sc-for></select></td>
+              <!-- 2026 Credits -->
+              <td style="padding:6px 8px;background:#f6ead8;border-bottom:1px solid var(--border-subtle);border-right:1px solid var(--border-subtle);text-align:right;vertical-align:middle"><div style="font:600 14px/1.1 var(--font-sans);color:#5b432b">{{ r.cr26 }}</div><sc-if value="{{ r.cap26 }}" hint-placeholder-val="{{ false }}"><div style="font:500 9px/1.2 var(--font-sans);color:#b96a62;margin-top:2px">capped · 5 vg</div></sc-if></td>
+              <!-- Remove row -->
+              <td style="padding:0;text-align:center;border-bottom:1px solid var(--border-subtle);vertical-align:middle"><button onClick="{{ r.remove }}" title="Remove field" style="width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;color:var(--text-subtle);border-radius:0" style-hover="color:#c0392b;background:#fbeceb"><span class="material-symbols-outlined" style="font-size:18px">delete</span></button></td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Totals + actions -->
+    <div style="display:flex;align-items:stretch;justify-content:space-between;gap:24px;margin-top:18px;flex-wrap:wrap">
+      <div style="display:flex;gap:0;border:1px solid var(--fj-black);background:#fff;flex-wrap:wrap">
+        <div style="padding:14px 22px;border-right:1px solid var(--border-subtle)">
+          <div style="font:500 11px/1 var(--font-sans);letter-spacing:.04em;text-transform:uppercase;color:var(--text-subtle);margin-bottom:8px">Total Official Size</div>
+          <div style="font:600 24px/1 var(--font-sans);letter-spacing:-.02em;color:var(--fj-ink)">{{ totalOfficial }}<span style="font:500 13px/1 var(--font-sans);color:var(--text-muted);margin-left:5px">vg</span></div>
+        </div>
+        <div style="padding:14px 22px;border-right:1px solid var(--border-subtle);background:#f3f8f3">
+          <div style="font:500 11px/1 var(--font-sans);letter-spacing:.04em;text-transform:uppercase;color:var(--text-subtle);margin-bottom:8px">Area Used · 2025</div>
+          <div style="font:600 24px/1 var(--font-sans);letter-spacing:-.02em;color:#2f4a2c">{{ total25 }}<span style="font:500 13px/1 var(--font-sans);color:var(--text-muted);margin-left:5px">vg</span></div>
+        </div>
+        <div style="padding:14px 22px;border-right:1px solid var(--border-subtle);background:var(--fj-green)">
+          <div style="font:500 11px/1 var(--font-sans);letter-spacing:.04em;text-transform:uppercase;color:var(--fj-green-deep);margin-bottom:8px">Total Credits · 2025</div>
+          <div style="font:600 24px/1 var(--font-sans);letter-spacing:-.02em;color:var(--fj-green-deep)">{{ totalCr25 }}<span style="font:500 13px/1 var(--font-sans);color:#4e6b4a;margin-left:5px">cr</span></div>
+        </div>
+        <div style="padding:14px 22px;border-right:1px solid var(--border-subtle);background:#faf4ea">
+          <div style="font:500 11px/1 var(--font-sans);letter-spacing:.04em;text-transform:uppercase;color:var(--text-subtle);margin-bottom:8px">Area Used · 2026</div>
+          <div style="font:600 24px/1 var(--font-sans);letter-spacing:-.02em;color:#5b432b">{{ total26 }}<span style="font:500 13px/1 var(--font-sans);color:var(--text-muted);margin-left:5px">vg</span></div>
+        </div>
+        <div style="padding:14px 22px;background:var(--fj-earth)">
+          <div style="font:500 11px/1 var(--font-sans);letter-spacing:.04em;text-transform:uppercase;color:#fff;margin-bottom:8px">Total Credits · 2026</div>
+          <div style="font:600 24px/1 var(--font-sans);letter-spacing:-.02em;color:#fff">{{ totalCr26 }}<span style="font:500 13px/1 var(--font-sans);color:#f0e2d0;margin-left:5px">cr</span></div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <button style="display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:11px 20px;font:500 15px/1.4 var(--font-sans);background:#fff;color:var(--fj-black);border:1px solid var(--fj-black);cursor:pointer;border-radius:0" style-hover="background:var(--surface-raised)">Save draft</button>
+        <button style="display:inline-flex;align-items:center;gap:9px;min-height:46px;padding:11px 24px;font:500 15px/1.4 var(--font-sans);background:var(--fj-green);color:var(--fj-green-deep);border:1px solid var(--fj-green-deep);cursor:pointer;border-radius:0" style-hover="background:var(--primary-50)"><span class="material-symbols-outlined" style="font-size:19px">check</span>Submit declaration</button>
+      </div>
+    </div>
+
+    <!-- Eligibility conditions -->
+    <div style="margin-top:22px;border:1px solid var(--border-subtle);background:#fff;padding:18px 22px">
+      <div style="display:flex;align-items:center;gap:8px;font:700 11px/1 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px"><span class="material-symbols-outlined" style="font-size:16px;color:var(--fj-green-deep)">gavel</span>Eligibility conditions · RSS Guidance 2026</div>
+      <ul style="margin:0;padding-left:18px;display:grid;grid-template-columns:1fr 1fr;gap:9px 32px;font:400 13px/1.5 var(--font-sans);color:var(--text-body)">
+        <li><strong>Market Garden Area</strong> earns 35 cr/vg on up to <strong>5 vergées</strong>, and requires at least 5 different crops per vergée.</li>
+        <li><strong>Organic incentives</strong> apply only to certified organic parcels (Tier 1 certification).</li>
+        <li><strong>Conservation Crop</strong> must be sown purely for environmental benefit — excludes grazing and anything seeded before 01/01/25.</li>
+        <li><strong>Regenerative Practice &amp; Buffer Strips</strong> apply to cultivable land only; buffer strips ≤6 m wide, identified on a Conservation &amp; Landscape Plan.</li>
+        <li><strong>Cover crops</strong> must follow a primary crop; soil cover crops must not be harvested and removed.</li>
+        <li>Choosing an option is your assertion that the field qualifies under the guidance.</li>
+      </ul>
+    </div>
+
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1400,&quot;height&quot;:900},&quot;startRows&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:5,&quot;min&quot;:1,&quot;max&quot;:20,&quot;tsType&quot;:&quot;number&quot;},&quot;showGuidance&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const n = Math.max(1, Math.min(20, (props && props.startRows) || 5));
+    const rows = [];
+    for (let i = 0; i < n; i++) rows.push(this.blank());
+    this.state = { rows };
+  }
+
+  blank() {
+    return {
+      id: 'r' + (Component._uid = (Component._uid || 0) + 1),
+      owned: false, leased: false,
+      fieldName: '', parcelNo: '', officialSize: '',
+      y25Area: '', y25Use: '', y25Crop: '', y25PInc: 'None', y25LInc: 'None', y25OInc: 'N/A', y25Crop2: '', y25SInc: 'None',
+      del: false,
+      y26Area: '', y26Use: '', y26Crop: '', y26PInc: 'None', y26LInc: 'None', y26OInc: 'N/A', y26Crop2: '', y26SInc: 'None'
+    };
+  }
+
+  patch(id, obj) {
+    this.setState(s => ({ rows: s.rows.map(r => r.id === id ? { ...r, ...obj } : r) }));
+  }
+
+  num(v) { const n = parseFloat(v); return isNaN(n) ? 0 : n; }
+
+  renderVals() {
+    const crops = ['Apple Orchard','Asparagus','Aubergine','Barley','Beetroot','Bio-Fumigant','Beans','Bedding Plants','Brussel Sprouts','Bird Seed Mix','Buffer Strip','Carrots','Cabbage','Cauliflower','Calabrese','Courgettes','Fodder Beet','Garlic','Grass - Permanent','Grass - Plough-back','Grass - Silage','Grazing Cattle','Grazing Equine','Grazing Goats','Grazing Poultry','Grazing Pigs','Grazing Sheep','Grazed Meadow','Grazed Coastal','Woodland Coppiced','Hemp','Hay','Herbs','Haylage','Jersey Royal','Jersey Royal Plastic','Kale','Lettuce','Leeks','Maize','Market Garden','Maincrop Potato','Mustard','Narcissi','Oats','Onions','Ornamentals','Other','Parsnips','Peas','Phacelia','Peppers','Pollinator Mix','Prickly Potato','Pumpkins','Squash','Sweetcorn','Tea','Tomatoes','Uncultivated Woods','Uncultivated Coast','Uncultivated Meadow','Wheat','None'];
+    const landUses = ['Glasshouse Crop','Outdoor Crop','Polytunnel Crop','Land (Other)'];
+    const primaryIncs = ['None','Regen / Min Till','Buffer Strip','Environmental Crop'];
+    const localIncs = ['None','Greenhouse Food','Polytunnel Food','Mkt Garden Food','Local Food Crop','Local Non Food Crop','Forage Crop (Primary)'];
+    const secIncs = ['None','Biodiversity Cover Crop','Local 2nd (Food) Crop','Bio Control Cover Crop','Soil Cover Crop'];
+    const organics = ['N/A','Vegtables','Cereals','Grassland / Orchard','Rough Grazing'];
+    const RATES = {
+      landUse: { 'Outdoor Crop': 2.5, 'Glasshouse Crop': 8, 'Polytunnel Crop': 4, 'Land (Other)': 0.25 },
+      primary: { 'Regen / Min Till': 2, 'Buffer Strip': 18, 'Environmental Crop': 6, 'None': 0 },
+      local: { 'Greenhouse Food': 140, 'Polytunnel Food': 70, 'Mkt Garden Food': 35, 'Local Food Crop': 5, 'Local Non Food Crop': 3, 'Forage Crop (Primary)': 1, 'None': 0 },
+      organic: { 'Vegtables': 6, 'Cereals': 5, 'Grassland / Orchard': 4, 'Rough Grazing': 0.5, 'N/A': 0 },
+      secondary: { 'Biodiversity Cover Crop': 4, 'Local 2nd (Food) Crop': 3.5, 'Bio Control Cover Crop': 3, 'Soil Cover Crop': 1.25, 'None': 0 }
+    };
+    const creditsYear = (area, use, p, l, o, s) => {
+      const a = this.num(area);
+      const local = l === 'Mkt Garden Food' ? Math.min(a, 5) * 35 : a * (RATES.local[l] || 0);
+      return a * (RATES.landUse[use] || 0) + a * (RATES.primary[p] || 0) + local + a * (RATES.organic[o] || 0) + a * (RATES.secondary[s] || 0);
+    };
+
+    const rows = this.state.rows;
+    let totO = 0, t25 = 0, t26 = 0, tCr25 = 0, tCr26 = 0;
+    rows.forEach(r => { if (!r.del) { totO += this.num(r.officialSize); t25 += this.num(r.y25Area); t26 += this.num(r.y26Area); } });
+    const fmt = v => (Math.round(v * 100) / 100).toLocaleString('en-GB', { maximumFractionDigits: 2 });
+
+    const txt = (id, f) => e => this.patch(id, { [f]: e.target.value });
+    const sel = (id, f) => e => this.patch(id, { [f]: e.target.value });
+
+    const rowsView = rows.map(r => {
+      const id = r.id;
+      const c25 = r.del ? 0 : creditsYear(r.y25Area, r.y25Use, r.y25PInc, r.y25LInc, r.y25OInc, r.y25SInc);
+      const c26 = r.del ? 0 : creditsYear(r.y26Area, r.y26Use, r.y26PInc, r.y26LInc, r.y26OInc, r.y26SInc);
+      tCr25 += c25; tCr26 += c26;
+      return {
+        ...r,
+        cr25: fmt(c25), cr26: fmt(c26),
+        cap25: !r.del && r.y25LInc === 'Mkt Garden Food' && this.num(r.y25Area) > 5,
+        cap26: !r.del && r.y26LInc === 'Mkt Garden Food' && this.num(r.y26Area) > 5,
+        rowBg: r.del ? 'rgba(192,57,43,.05)' : '#fff',
+        frozenBg: r.del ? '#fbeeec' : '#fff',
+        setFieldName: txt(id, 'fieldName'),
+        setParcel: txt(id, 'parcelNo'),
+        setOfficial: txt(id, 'officialSize'),
+        set25Area: txt(id, 'y25Area'),
+        set25Use: sel(id, 'y25Use'),
+        set25Crop: sel(id, 'y25Crop'),
+        set25PInc: sel(id, 'y25PInc'),
+        set25LInc: sel(id, 'y25LInc'),
+        set25OInc: sel(id, 'y25OInc'),
+        set25Crop2: sel(id, 'y25Crop2'),
+        set25SInc: sel(id, 'y25SInc'),
+        set26Area: txt(id, 'y26Area'),
+        set26Use: sel(id, 'y26Use'),
+        set26Crop: sel(id, 'y26Crop'),
+        set26PInc: sel(id, 'y26PInc'),
+        set26LInc: sel(id, 'y26LInc'),
+        set26OInc: sel(id, 'y26OInc'),
+        set26Crop2: sel(id, 'y26Crop2'),
+        set26SInc: sel(id, 'y26SInc'),
+        toggleOwned: e => this.patch(id, { owned: e.target.checked, leased: e.target.checked ? false : r.leased }),
+        toggleLeased: e => this.patch(id, { leased: e.target.checked, owned: e.target.checked ? false : r.owned }),
+        toggleDel: e => this.patch(id, { del: e.target.checked }),
+        remove: () => this.setState(s => ({ rows: s.rows.length > 1 ? s.rows.filter(x => x.id !== id) : s.rows }))
+      };
+    });
+
+    const flagged = rows.filter(r => r.del).length;
+    return {
+      rows: rowsView,
+      crops, landUses, primaryIncs, localIncs, secIncs, organics,
+      addRow: () => this.setState(s => ({ rows: [...s.rows, this.blank()] })),
+      rowCountLabel: rows.length + (rows.length === 1 ? ' field declared' : ' fields declared') + (flagged ? ' · ' + flagged + ' flagged for deletion' : ''),
+      totalOfficial: fmt(totO),
+      total25: fmt(t25),
+      total26: fmt(t26),
+      totalCr25: fmt(tCr25),
+      totalCr26: fmt(tCr26),
+      showGuidance: this.props.showGuidance !== false
+    };
+  }
+}
+</script>
+</body>
+</html>

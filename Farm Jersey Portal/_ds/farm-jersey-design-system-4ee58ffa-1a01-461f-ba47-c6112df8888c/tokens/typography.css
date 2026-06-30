@@ -1,0 +1,64 @@
+/* Farm Jersey — Typography
+   UI/body set in Inter; rare hero display moments set in Brockmann.
+   Numeric size tokens come from fig-tokens.css (unitless floats → *1px). */
+
+:root {
+  --font-display: "Brockmann", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Display — Brockmann, reserved for the largest hero wordmark moments */
+  --type-display-size: clamp(64px, 12vw, 196px);
+  --type-display-line: 0.96;
+  --type-display-tracking: -0.03em;
+  --type-display-weight: 700;
+
+  /* Heading scale (Inter, tight tracking) */
+  --type-h1-size: 56px;   --type-h1-line: 1.08;
+  --type-h2-size: calc(var(--text-sizes-heading-2) * 1px); /* 48 */ --type-h2-line: 1.12;
+  --type-h3-size: 40px;   --type-h3-line: 1.15;
+  --type-h4-size: calc(var(--text-sizes-heading-4) * 1px); /* 32 */ --type-h4-line: 1.2;
+  --type-h5-size: calc(var(--text-sizes-heading-5) * 1px); /* 24 */ --type-h5-line: 1.3;
+  --type-h6-size: calc(var(--text-sizes-heading-6) * 1px); /* 20 */ --type-h6-line: 1.4;
+  --type-heading-weight: 600;
+  --type-heading-tracking: -0.022em;
+
+  /* Body / UI text */
+  --type-body-lg-size: calc(var(--text-sizes-text-medium) * 1px);  /* 18 */
+  --type-body-size: calc(var(--text-sizes-text-regular) * 1px);    /* 16 */
+  --type-body-sm-size: calc(var(--text-sizes-text-small) * 1px);   /* 14 */
+  --type-body-xs-size: 12px;
+  --type-body-line: 1.5;
+  --type-body-tracking: -0.011em;
+
+  /* Tagline — small all-caps eyebrow seen above headings */
+  --type-tagline-size: 16px;
+  --type-tagline-weight: 600;
+  --type-tagline-tracking: 0;
+}
+
+/* Opt-in helper classes (the design system's React components inline these) */
+.fj-display { font-family: var(--font-display); font-weight: var(--type-display-weight);
+  font-size: var(--type-display-size); line-height: var(--type-display-line);
+  letter-spacing: var(--type-display-tracking); color: var(--text-heading); }
+
+.fj-h1, .fj-h2, .fj-h3, .fj-h4, .fj-h5, .fj-h6 {
+  font-family: var(--font-sans); font-weight: var(--type-heading-weight);
+  letter-spacing: var(--type-heading-tracking); color: var(--text-heading);
+  text-wrap: balance; margin: 0; }
+.fj-h1 { font-size: var(--type-h1-size); line-height: var(--type-h1-line); }
+.fj-h2 { font-size: var(--type-h2-size); line-height: var(--type-h2-line); }
+.fj-h3 { font-size: var(--type-h3-size); line-height: var(--type-h3-line); }
+.fj-h4 { font-size: var(--type-h4-size); line-height: var(--type-h4-line); }
+.fj-h5 { font-size: var(--type-h5-size); line-height: var(--type-h5-line); }
+.fj-h6 { font-size: var(--type-h6-size); line-height: var(--type-h6-line); }
+
+.fj-body-lg, .fj-body, .fj-body-sm {
+  font-family: var(--font-sans); font-weight: 400; line-height: var(--type-body-line);
+  letter-spacing: var(--type-body-tracking); color: var(--text-body); }
+.fj-body-lg { font-size: var(--type-body-lg-size); }
+.fj-body { font-size: var(--type-body-size); }
+.fj-body-sm { font-size: var(--type-body-sm-size); }
+
+.fj-tagline { font-family: var(--font-sans); font-weight: var(--type-tagline-weight);
+  font-size: var(--type-tagline-size); letter-spacing: var(--type-tagline-tracking);
+  color: var(--text-body); }

@@ -1,0 +1,109 @@
+/* Generated from Figma Variables. First mode = :root default.
+   FLOAT tokens are unitless — multiply by 1px in calc() where a length is needed. */
+
+:root {
+  --color-neutral-black: rgb(0,0,0); /* @kind color */
+  --color-neutral-darkest: rgb(0,0,0); /* @kind color */
+  --color-neutral-lighter: rgb(204,204,204); /* @kind color */
+  --color-neutral-lightest: rgb(238,238,238); /* @kind color */
+  --color-scheme-1-background: var(--color-white); /* @kind color */
+  --color-scheme-1-border: var(--color-neutral-darkest); /* @kind color */
+  --color-scheme-1-foreground: var(--color-white); /* @kind color */
+  --color-scheme-1-text: var(--color-neutral-darkest); /* @kind color */
+  --color-white: rgb(255,255,255); /* @kind color */
+  --container-container-large: 1280; /* @kind spacing */
+  --error-100: rgb(92,0,17); /* @kind color */
+  --error-10: rgb(255,241,240); /* @kind color */
+  --error-20: rgb(255,204,199); /* @kind color */
+  --error-30: rgb(255,163,158); /* @kind color */
+  --error-40: rgb(255,120,117); /* @kind color */
+  --error-50: rgb(255,77,79); /* @kind color */
+  --error-60: rgb(245,34,45); /* @kind color */
+  --error-70: rgb(207,19,34); /* @kind color */
+  --error-80: rgb(168,7,26); /* @kind color */
+  --error-90: rgb(130,0,20); /* @kind color */
+  --info-100: rgb(0,39,102); /* @kind color */
+  --info-10: rgb(230,247,255); /* @kind color */
+  --info-20: rgb(186,231,255); /* @kind color */
+  --info-30: rgb(145,213,255); /* @kind color */
+  --info-40: rgb(105,192,255); /* @kind color */
+  --info-50: rgb(64,169,255); /* @kind color */
+  --info-60: rgb(24,144,255); /* @kind color */
+  --info-70: rgb(9,109,217); /* @kind color */
+  --info-80: rgb(0,80,179); /* @kind color */
+  --info-90: rgb(0,58,140); /* @kind color */
+  --max-width-max-width-small: 480; /* @kind spacing */
+  --neutral-100: rgb(35,31,32); /* @kind color */
+  --neutral-10: rgb(255,255,255); /* @kind color */
+  --neutral-20: rgb(198,154,113); /* @kind color */
+  --neutral-30: rgb(237,240,243); /* @kind color */
+  --neutral-40: rgb(221,225,230); /* @kind color */
+  --neutral-50: rgb(208,212,217); /* @kind color */
+  --neutral-5: rgba(255,255,255,0.5); /* @kind color */
+  --neutral-60: rgb(170,175,182); /* @kind color */
+  --neutral-70: rgb(131,141,149); /* @kind color */
+  --neutral-80: rgb(99,107,117); /* @kind color */
+  --neutral-90: rgb(30,32,36); /* @kind color */
+  --primary-100: rgb(57,82,55); /* @kind color */
+  --primary-10: rgb(241,254,240); /* @kind color */
+  --primary-20: rgb(227,252,225); /* @kind color */
+  --primary-30: rgb(213,251,211); /* @kind color */
+  --primary-40: rgb(198,250,196); /* @kind color */
+  --primary-50: rgb(184,248,181); /* @kind color */
+  --primary-60: rgb(170,247,166); /* @kind color */
+  --primary-70: rgb(142,206,138); /* @kind color */
+  --primary-80: rgb(113,165,111); /* @kind color */
+  --primary-90: rgb(85,124,83); /* @kind color */
+  --radius-large: 0;
+  --radius-medium: 0;
+  --secondary-100: rgb(55,81,78); /* @kind color */
+  --secondary-10: rgb(240,253,251); /* @kind color */
+  --secondary-20: rgb(225,251,248); /* @kind color */
+  --secondary-30: rgb(211,250,244); /* @kind color */
+  --secondary-40: rgb(196,248,240); /* @kind color */
+  --secondary-50: rgb(181,246,237); /* @kind color */
+  --secondary-60: rgb(166,244,233); /* @kind color */
+  --secondary-70: rgb(138,203,194); /* @kind color */
+  --secondary-80: rgb(111,163,155); /* @kind color */
+  --secondary-90: rgb(83,122,117); /* @kind color */
+  --stroke-border-width: 1;
+  --success-100: rgb(9,43,0); /* @kind color */
+  --success-10: rgb(246,255,237); /* @kind color */
+  --success-20: rgb(217,247,190); /* @kind color */
+  --success-30: rgb(183,235,143); /* @kind color */
+  --success-40: rgb(149,222,100); /* @kind color */
+  --success-50: rgb(115,209,61); /* @kind color */
+  --success-60: rgb(82,196,26); /* @kind color */
+  --success-70: rgb(56,158,13); /* @kind color */
+  --success-80: rgb(35,120,4); /* @kind color */
+  --success-90: rgb(19,82,0); /* @kind color */
+  --text-sizes-heading-2: 48;
+  --text-sizes-heading-4: 32;
+  --text-sizes-heading-5: 24;
+  --text-sizes-heading-6: 20;
+  --text-sizes-text-medium: 18;
+  --text-sizes-text-regular: 16;
+  --text-sizes-text-small: 14;
+  --warning-100: rgb(97,52,0); /* @kind color */
+  --warning-10: rgb(255,251,230); /* @kind color */
+  --warning-20: rgb(255,241,184); /* @kind color */
+  --warning-30: rgb(255,229,143); /* @kind color */
+  --warning-40: rgb(255,214,102); /* @kind color */
+  --warning-50: rgb(255,197,61); /* @kind color */
+  --warning-60: rgb(249,247,165); /* @kind color */
+  --warning-70: rgb(212,136,6); /* @kind color */
+  --warning-80: rgb(173,104,0); /* @kind color */
+  --warning-90: rgb(135,77,0); /* @kind color */
+}
+
+:root[data-mode="mobile"] {
+  --container-container-large: 1280; /* @kind spacing */
+  --max-width-max-width-small: 480; /* @kind spacing */
+  --text-sizes-heading-2: 36;
+  --text-sizes-heading-4: 24;
+  --text-sizes-heading-5: 20;
+  --text-sizes-heading-6: 18;
+  --text-sizes-text-medium: 16;
+  --text-sizes-text-regular: 16;
+  --text-sizes-text-small: 14;
+}

@@ -1,0 +1,9 @@
+/* Farm Jersey — Design System
+   Global CSS entry point. Consumers link this one file.
+   Keep this as an @import manifest only — no rules here. */
+
+@import "./tokens/fig-tokens.css";   /* raw Figma Variables (palette + numeric tokens) */
+@import "./tokens/fonts.css";         /* @font-face + webfont imports */
+@import "./tokens/colors.css";        /* brand + semantic colour aliases */
+@import "./tokens/typography.css";    /* type scale + helper classes */
+@import "./tokens/spacing.css";       /* spacing, radius, borders, shadows, layout */

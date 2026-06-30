@@ -1,0 +1,46 @@
+/* Farm Jersey — Spacing, radius, borders, shadows, layout
+   Note: this brand is SQUARE — radius tokens resolve to 0 (from fig-tokens.css). */
+
+:root {
+  /* Spacing scale (Relume-style 4px base) */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-28: 112px;   /* section padding-block on desktop */
+  --space-section: var(--space-28);
+
+  /* Radius — the brand uses hard corners. Kept as tokens for completeness. */
+  --radius-none: 0;
+  --radius-sm: calc(var(--radius-medium) * 1px);  /* 0 */
+  --radius-md: calc(var(--radius-large) * 1px);   /* 0 */
+  --radius-pill: 999px;   /* only used for avatars / status dots */
+  --radius-round: 50%;
+
+  /* Borders */
+  --border-width: calc(var(--stroke-border-width) * 1px); /* 1px */
+  --border-width-strong: 2px;
+  --border: var(--border-width) solid var(--border-default);
+  --border-hairline: var(--border-width) solid var(--border-subtle);
+
+  /* Shadows — restrained, cool-grey, used sparingly */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.08);
+  --shadow-sm: 0 1px 3px rgba(93,99,112,0.1), 0 1px 2px rgba(93,99,112,0.15);
+  --shadow-md: 0 4px 12px rgba(93,99,112,0.15);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
+  --shadow-overlay: 0 16px 48px rgba(0,0,0,0.25);
+
+  /* Layout */
+  --container-max: calc(var(--container-container-large) * 1px); /* 1280px */
+  --container-narrow: calc(var(--max-width-max-width-small) * 1px); /* 480px */
+  --gutter: var(--space-16);
+  --section-pad-y: var(--space-28);
+}

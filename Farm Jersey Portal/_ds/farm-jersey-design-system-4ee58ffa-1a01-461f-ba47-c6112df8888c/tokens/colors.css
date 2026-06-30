@@ -1,0 +1,56 @@
+/* Farm Jersey — Color system
+   Raw palette lives in fig-tokens.css (materialised from Figma Variables).
+   This file adds brand + semantic aliases on top. */
+
+:root {
+  /* ---- Brand core ---- */
+  --fj-green: var(--primary-60);          /* #AAF7A6 — the signature spring green */
+  --fj-green-soft: rgb(157,210,164);      /* #9DD2A4 — pattern / muted green */
+  --fj-green-deep: var(--primary-100);    /* #395237 — deep field green (text on green) */
+  --fj-earth: var(--neutral-20);          /* #C69A71 — tan / soil accent */
+  --fj-ink: rgb(14,15,17);                /* near-black headline ink */
+  --fj-black: var(--color-neutral-black); /* #000 — borders, body text */
+  --fj-dark: var(--neutral-100);          /* #231F20 — dark surfaces */
+  --fj-white: var(--color-white);
+
+  /* ---- Text ---- */
+  --text-heading: var(--fj-ink);
+  --text-body: var(--color-neutral-black);
+  --text-muted: var(--neutral-80);        /* #636B75 */
+  --text-subtle: var(--neutral-70);       /* #838D95 */
+  --text-on-dark: var(--color-white);
+  --text-on-green: var(--fj-green-deep);
+  --text-link: var(--color-neutral-black);
+
+  /* ---- Surfaces ---- */
+  --surface-page: var(--color-white);
+  --surface-raised: rgb(249,250,251);     /* faint grey section */
+  --surface-card: var(--color-white);
+  --surface-dark: var(--fj-dark);
+  --surface-green: var(--fj-green);
+  --surface-earth: var(--fj-earth);
+
+  /* ---- Lines & borders ---- */
+  --border-default: var(--color-neutral-black);  /* high-contrast black hairline */
+  --border-subtle: var(--neutral-40);            /* #DDE1E6 */
+  --border-muted: var(--neutral-50);             /* #D0D4D9 */
+  --border-on-dark: rgba(255,255,255,0.18);
+
+  /* ---- Interactive (buttons mirror the live brand components) ---- */
+  --action-primary-bg: var(--color-neutral-black);
+  --action-primary-fg: var(--color-white);
+  --action-primary-bg-hover: var(--neutral-90);
+  --action-accent-bg: var(--fj-green);
+  --action-accent-fg: var(--fj-green-deep);
+  --action-accent-bg-hover: var(--primary-50);
+
+  /* ---- Semantic status ---- */
+  --status-success: var(--success-70);
+  --status-success-bg: var(--success-10);
+  --status-warning: var(--warning-70);
+  --status-warning-bg: var(--warning-10);
+  --status-error: var(--error-70);
+  --status-error-bg: var(--error-10);
+  --status-info: var(--info-60);
+  --status-info-bg: var(--info-10);
+}
